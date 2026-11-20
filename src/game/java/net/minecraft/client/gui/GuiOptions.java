@@ -12,8 +12,6 @@ import net.lax1dude.eaglercraft.v1_8.minecraft.EaglerFolderResourcePack;
 import net.lax1dude.eaglercraft.v1_8.minecraft.GuiScreenGenericErrorMessage;
 import net.lax1dude.eaglercraft.v1_8.opengl.GlStateManager;
 import net.lax1dude.eaglercraft.v1_8.opengl.ext.deferred.EaglerDeferredPipeline;
-import net.lax1dude.eaglercraft.v1_8.opengl.ext.deferred.gui.GuiShaderConfig;
-import net.lax1dude.eaglercraft.v1_8.opengl.ext.deferred.gui.GuiShadersNotSupported;
 import net.lax1dude.eaglercraft.v1_8.profile.GuiScreenImportExportProfile;
 import net.lax1dude.eaglercraft.v1_8.recording.GuiScreenRecordingNote;
 import net.lax1dude.eaglercraft.v1_8.recording.GuiScreenRecordingSettings;
@@ -109,8 +107,6 @@ public class GuiOptions extends GuiScreen implements GuiYesNoCallback {
 
 		this.buttonList.add(new GuiButton(110, this.width / 2 - 155, this.height / 6 + 48 - 6, 150, 20,
 				I18n.format("options.skinCustomisation", new Object[0])));
-		this.buttonList.add(new GuiButton(8675309, this.width / 2 + 5, this.height / 6 + 48 - 6, 150, 20,
-				I18n.format("shaders.gui.optionsButton")));
 		this.buttonList.add(new GuiButton(106, this.width / 2 - 155, this.height / 6 + 72 - 6, 150, 20,
 				I18n.format("options.sounds", new Object[0])));
 		boolean support = ScreenRecordingController.isSupported();
@@ -194,14 +190,6 @@ public class GuiOptions extends GuiScreen implements GuiYesNoCallback {
 				this.mc.gameSettings.saveOptions();
 				this.mc.displayGuiScreen(new GuiCustomizeSkin(this));
 			}
-
-			if (parGuiButton.id == 8675309) {
-				if (EaglerDeferredPipeline.isSupported()) {
-					this.mc.displayGuiScreen(new GuiShaderConfig(this));
-				} else {
-					this.mc.displayGuiScreen(new GuiShadersNotSupported(this,
-							I18n.format(EaglerDeferredPipeline.getReasonUnsupported())));
-				}
 			}
 
 			if (parGuiButton.id == 101) {
