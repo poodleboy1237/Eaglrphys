@@ -79,6 +79,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 			-69, -107, 113, -93, -101, -79, 32 };
 	private String splashText;
 	private GuiButton buttonResetDemo;
+	private GuiButton multiplayerBtn;
 	private int panoramaTimer;
 	/**+
 	 * Texture allocated for the current viewport of the main menu's
@@ -317,8 +318,6 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
 		this.buttonList
 				.add(new GuiButton(1, this.width / 2 - 100, parInt1, I18n.format("menu.singleplayer", new Object[0])));
 		this.buttonList.add(new GuiButton(2, this.width / 2 - 100, parInt1 + parInt2 * 1,
-				I18n.format("menu.multiplayer", new Object[0])));
-		if (EaglercraftVersion.mainMenuEnableGithubButton) {
 			this.buttonList.add(
 					new GuiButton(14, this.width / 2 - 100, parInt1 + parInt2 * 2, I18n.format("menu.forkOnGitlab")));
 		} else {
